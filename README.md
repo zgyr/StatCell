@@ -1,1 +1,2 @@
-"# StatCell" 
+# StatCell
+Statistics-driven artificial neurons
