@@ -10,17 +10,18 @@ class Cell:
         self.avg = np.zeros(self.inputs)
         self.var = np.zeros(self.inputs)
         self.weights = np.random.random((self.inputs, size))
+        self.is_training = True
     
     def train(self):
-        pass
+        self.is_training = True
     
     def eval(self):
-        pass
+        self.is_training = False
     
     def step(self, data):
         self.s_acc += data
         self.c_acc += 1
-        self.avg = self.s_acc/c_acc
-        self.var += (data-self.avg)**2
-        data = (data - self.avg) / np.sqrt(self.var)
+        self.avg = self.s_acc / c_acc
+        self.var += (data - self.avg)**2
+        data = np.round((data - self.avg) / np.sqrt(self.var) * self.size * 0.5)
         
